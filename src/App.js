@@ -18,6 +18,12 @@ function App() {
           Learn React
         </a>
       </header>
+      <main>
+      <p>Hi Pham</p>
+      </main>
+      <footer>
+      @Copyright DuPham
+      </footer>
     </div>
   );
 }
