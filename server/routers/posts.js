@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/home", async (req, res) => {
+router.put("/update", async (req, res) => {
   try {
     const updatePost = req.body;
 
