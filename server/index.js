@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import posts from './routers/posts.js';
 import mongoose from 'mongoose';
+import router from './routers/posts.js';
 
 const app = express();
 const PORT = process.env.port || 5000;
@@ -13,6 +14,9 @@ app.use(bodyParser.json({limit: '30mb'})); //giới hạn dung lượng từ cli
 app.use(bodyParser.urlencoded({ extended: true, limit: '30mb'}));
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('ahihi!');
+});
 app.use('/posts', posts);
 
 mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true})
