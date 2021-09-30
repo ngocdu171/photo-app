@@ -30,7 +30,7 @@ export default function Post() {
         <Button>Button</Button>
       </CardBody>
       <p>test</p>
-      <i class='bx bxs-heart' ></i>
+      <i class='bx bxs-heart bx-lg' ></i>
       
     </Card>
   );
