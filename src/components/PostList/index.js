@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Col, Container, Row } from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Col, Row } from "reactstrap";
 import Post from "./Post";
 import * as actions from '../../redux/actions'
+import { postsState$ } from "../../redux/selectors";
 
 export default function PostList() {
 
     const dispatch = useDispatch();
+    const posts = useSelector(postsState$);
+
+    console.log(posts);
+
     useEffect(() => {
-        dispatch(actions.getPosts.getPostsRequest())
-    }, [dispatch])
+        dispatch(actions.getPosts.getPostRequest());
+    }, [dispatch]);
 
   return (
     <Row>
