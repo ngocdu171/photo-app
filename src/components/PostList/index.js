@@ -1,17 +1,18 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
+import Post from "./Post";
 
 export default function PostList() {
   return (
     <Row>
       <Col xs="12" sm="6">
-        <p>This is 01</p>
+        <Post />
       </Col>
       <Col xs="12" sm="6">
-        <p>This is 02</p>
+        <Post />
       </Col>
       <Col xs="12" sm="6">
-        <p>This is 03</p>
+        <Post />
       </Col>
     </Row>
   );

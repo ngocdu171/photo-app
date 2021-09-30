@@ -7,6 +7,7 @@ import {
   CardTitle,
   CardSubtitle,
   Button,
+  CardFooter,
 } from "reactstrap";
 
 export default function Post() {
@@ -15,7 +16,7 @@ export default function Post() {
       <CardImg
         top
         width="100%"
-        src="/assets/318x180.svg"
+        src="https://i.dlpng.com/static/png/6956654_preview.png"
         alt="Card image cap"
       />
       <CardBody>
@@ -29,9 +30,9 @@ export default function Post() {
         </CardText>
         <Button>Button</Button>
       </CardBody>
-      <p>test</p>
+      <CardFooter>
       <i class='bx bxs-heart bx-lg' ></i>
-      
+      </CardFooter>
     </Card>
   );
 }
