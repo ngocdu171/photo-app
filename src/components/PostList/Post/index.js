@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import {
   Card,
@@ -5,33 +6,28 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
   Button,
+  CardHeader,
   CardFooter,
+  Row,
 } from "reactstrap";
 
-export default function Post() {
+export default function Post({ post }) {
+  console.log("in ra tu post: ", post);
   return (
     <Card>
-      <CardImg
-        top
-        width="100%"
-        src="https://i.dlpng.com/static/png/6956654_preview.png"
-        alt="Card image cap"
-      />
+      <CardHeader>
+        <p>{post.author}</p>
+        <p>{moment(post.updatedAt).format("HH:MM MMM DD, YYYY")}</p>
+      </CardHeader>
       <CardBody>
-        <CardTitle tag="h5">Card title</CardTitle>
-        <CardSubtitle tag="h6" className="mb-2 text-muted">
-          Card subtitle
-        </CardSubtitle>
-        <CardText>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </CardText>
-        <Button>Button</Button>
+        <CardImg top width="100%" src={post.attachment} alt="Card image cap" />
+        <CardTitle tag="h5">{post.title}</CardTitle>
+        <CardText>{post.content}</CardText>
+        <Button>Go somewhere</Button>
       </CardBody>
       <CardFooter>
-      <i class='bx bxs-heart bx-lg' ></i>
+        <i class="bx bxs-heart bx-lg">{post.likeCount}</i>
       </CardFooter>
     </Card>
   );

@@ -1,31 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Col, Row } from "reactstrap";
+import { Col, Row, Spinner } from "reactstrap";
 import Post from "./Post";
-import * as actions from '../../redux/actions'
+import * as actions from "../../redux/actions";
 import { postsState$ } from "../../redux/selectors";
 
 export default function PostList() {
+  const dispatch = useDispatch();
+  const posts = useSelector(postsState$);
+  const [loading, setLoading] = useState(true);
 
-    const dispatch = useDispatch();
-    const posts = useSelector(postsState$);
+  console.log(posts);
 
-    console.log(posts);
+  useEffect(() => {
+    dispatch(actions.getPosts.getPostRequest());
+    setLoading(false);
+  }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(actions.getPosts.getPostRequest());
-    }, [dispatch]);
-
+  if (loading) {
+    return <Spinner color="primary" />;
+  }
   return (
     <Row>
       <Col xs="12" sm="6">
-        <Post />
-      </Col>
-      <Col xs="12" sm="6">
-        <Post />
-      </Col>
-      <Col xs="12" sm="6">
-        <Post />
+        {posts.map((post) => (
+          <Post key={post._id} post={post} />
+        ))}
       </Col>
     </Row>
   );
